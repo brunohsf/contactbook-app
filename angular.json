@@ -5,7 +5,11 @@
   "projects": {
     "contactbook-app": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,10 +27,12 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules\bootstrap\dist\css\bootstrap.min.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules\bootstrap\dist\js\bootstrap.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
             ]
           },
           "configurations": {
@@ -100,7 +106,8 @@
       }
     }
   },
+  "defaultProject": "contactbook-app",
   "cli": {
-    "analytics": "3c7ac8c6-cb9b-4ea7-9b5b-7bc70cca72b7"
+    "analytics": "147dda4a-9929-49fd-96d7-0735dc8def5f"
   }
 }
