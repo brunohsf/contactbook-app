@@ -11,7 +11,8 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    CustomerFormComponent
   ]
 })
 export class CustomerModule { }
