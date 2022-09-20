@@ -1,10 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
-@Component({
+import * as jQuery from 'jquery';
+
+@Component({  
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'contactbook-app';
+
+  ngAfterViewInit() {
+    (function ($) {
+      "use strict";
+
+      // Add active state to sidbar nav links
+      var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
+      var href = (<HTMLInputElement>document.getElementById('sidebarToggle')).value;
+      $("#layoutSidenav_nav .sb-sidenav a.nav-link").each(function () {
+        if (href === path) {
+          $(this).addClass("active");
+        }
+      });
+
+      // Toggle the side navigation
+      $("#sidebarToggle").on("click", function (e: { preventDefault: () => void; }) {
+        e.preventDefault();
+        $("body").toggleClass("sb-sidenav-toggled");
+      });
+    })(jQuery);
+  }
 }
