@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MainContentComponent } from './main-content/main-content.component';
+import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -11,16 +12,17 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     NavbarComponent,
     SidebarComponent,
-    MainContentComponent,
+    HomeComponent,
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,
     SidebarComponent,
-    MainContentComponent,
+    HomeComponent,
     FooterComponent
   ]
 })

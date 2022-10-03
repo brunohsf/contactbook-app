@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CustomerModule } from './customer/customer.module';
-import { TemplateModule } from './template/template.module';
 
+import { TemplateModule } from './template/template.module';
+import { CustomerModule } from './customer/customer.module'; 
+import { CustomerService } from './customer.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { TemplateModule } from './template/template.module';
     TemplateModule,
     CustomerModule
   ],
-  providers: [],
+  providers: [
+    CustomerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

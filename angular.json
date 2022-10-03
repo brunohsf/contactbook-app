@@ -106,8 +106,5 @@
       }
     }
   },
-  "defaultProject": "contactbook-app",
-  "cli": {
-    "analytics": "147dda4a-9929-49fd-96d7-0735dc8def5f"
-  }
+  "defaultProject": "contactbook-app"
 }
