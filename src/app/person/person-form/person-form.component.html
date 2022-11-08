@@ -1,0 +1,65 @@
+<h1 class="mt-4">Usuários</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">{{ person.idPerson ? 'Edição de Usuários' : 'Cadastro de Usuários' }}</li>
+</ol>
+<div class="container">  
+    <form #personForm="ngForm" (ngSubmit)="onSubmit()">        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    Usuário salvo com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let error of errors">
+                    {{ error }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>ID: </label>
+                    <input type="text" class="form-control" disabled="true" 
+                        [(ngModel)]="person.idPerson" name="idPerson" />
+                </div>
+            </div>        
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="text" class="form-control"  
+                        [(ngModel)]="person.emailPerson" name="emailPerson" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome: *</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="person.namePerson" name="namePerson" />
+                </div>
+            </div>        
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Senha: *</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="person.passwordPerson" name="passwordPerson" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success" *ngIf="!person.idPerson" >
+                    <i class="fa fa-save"></i> Salvar
+                </button>            
+                <button type="submit" class="btn btn-primary" *ngIf="person.idPerson" >
+                    <i class="fa fa-sync-alt"></i> Alterar
+                </button>
+                <button type="button" class="btn btn-danger ml-1" (click)="callPersonList()" >
+                    <i class="fa fa-list"></i> Listar
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

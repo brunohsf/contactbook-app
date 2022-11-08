@@ -1,0 +1,72 @@
+<h1 class="mt-4">Usuários</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Lista de Usuários</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning" (click)="callPersonForm()">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="messageSuccess">
+                {{messageSuccess}}
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="messageError">
+                {{ messageError }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of persons">
+                        <td>{{ person.idPerson }}</td>
+                        <td>{{ person.namePerson }}</td>
+                        <td>{{ person.emailPerson }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/person-form/{{ person.idPerson }}">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger ml-2" (click)="prepareDelete(person)" data-toggle="modal"
+                                data-target="#modalDelete">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirma Exclusão</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>Confirma exclusão do(a) usuário(a) {{ selectedPerson.namePerson }}?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-danger" data-dismiss="modal" (click)="delete()">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

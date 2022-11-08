@@ -3,4 +3,5 @@ export class Customer {
     nameCustomer!: string;
     cpfCustomer!: string;
     dateCreatedCustomer!: string;
+    
 }

@@ -2,41 +2,48 @@
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Formulário de Clientes</li>
 </ol>
-<div class="container">
+<div class="container">  
     <form #customerForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>ID: </label>
-                    <input type="text" class="form-control" disabled="true" [(ngModel)]="customer.idCustomer" name="idcustomer">
+                    <input type="text" class="form-control" disabled="true" 
+                        [(ngModel)]="customer.idCustomer" name="idCustomer" />
                 </div>
-            </div>
+            </div>        
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Data Cadastro: </label>
-                    <input type="text" class="form-control" [(ngModel)]="customer.dateCreatedCustomer" name="datecreatedcustomer" disabled="true">
+                    <input type="text" class="form-control" disabled="true" 
+                        [(ngModel)]="customer.dateCreatedCustomer" name="dateCreatedCustomer" />
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>Nome: * </label>
-                    <input type="text" class="form-control" [(ngModel)]="customer.nameCustomer" name="namecustomer">
+                    <label>Nome: *</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="customer.nameCustomer" name="nameCustomer" />
                 </div>
-            </div>
+            </div>        
             <div class="col-md-6">
                 <div class="form-group">
-                    <label>CPF: * </label>
-                    <input type="text" class="form-control" [(ngModel)]="customer.cpfCustomer" name="cpfcustomer">
+                    <label>CPF: *</label>
+                    <input type="text" class="form-control" 
+                        [(ngModel)]="customer.cpfCustomer" name="cpfCustomer" />
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-2">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" >
                     <i class="fa fa-save"></i> Salvar
                 </button>
             </div>
         </div>
+
     </form>
 </div>
