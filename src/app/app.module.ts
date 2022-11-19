@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -32,7 +33,8 @@ import { LayoutComponent } from './layout/layout.component';
   ],
   providers: [
     CustomerService,
-    PersonService
+    PersonService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
