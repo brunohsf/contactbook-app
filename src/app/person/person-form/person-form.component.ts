@@ -60,7 +60,7 @@ export class PersonFormComponent implements OnInit {
   }
 
   callPersonList() {
-    this.router.navigate(['/person-list']);
+    this.router.navigate(['/person/list']);
   }
  
 }

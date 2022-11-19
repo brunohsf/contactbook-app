@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  name!: string;
+  nome!: string;
   email!: string;
   password!: string;
-  loginError!: boolean;
+  loginError!: boolean; 
   submiting!: boolean;
 
   constructor(private router: Router) { }
@@ -21,9 +21,12 @@ export class LoginComponent {
   }
 
   prepareSubmiting(event: any) {
-    event?.preventDefault();
+    event.preventDefault();
     this.submiting = true;
   }
 
+  cancelSubmiting() {    
+    this.submiting = false;
+  }
 
 }

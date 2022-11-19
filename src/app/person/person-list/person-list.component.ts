@@ -13,35 +13,40 @@ export class PersonListComponent implements OnInit {
   persons: Person[] = [];
   person!: Person;
   selectedPerson!: Person;
-  messageSuccess!: String;
-  messageError!: String;
+  messageSuccess!: string;
+  messageError!: string;
 
   constructor( 
     private service: PersonService, 
     private router: Router) { 
+      
     }
-    
-    ngOnInit(): void {
+
+  ngOnInit(): void {
     this.selectedPerson = new Person();
     this.service.findAll()
       .subscribe(response => {
-        this.persons = response
+        this.persons = response        
       })
   }
 
   callPersonForm() {
-    this.router.navigate(['/person-form']);
-  }  
-
-  prepareDelete(person: Person){
+    this.router.navigate(['/person/form']);
+  }
+  
+  prepareDelete(person: Person) {
     this.selectedPerson = person;
   }
 
-  delete(){
+  delete() {
     this.service.delete(this.selectedPerson)
-    .subscribe(
-      response => this.messageSuccess = 'Usuário excluído com sucesso!', 
-      error => this.messageError = 'Problemas ao excluir usuário');          
+      .subscribe(
+        response => {
+          this.messageSuccess = 'Usuário excluído com sucesso!'
+          this.ngOnInit();
+        },
+        error => this.messageError = 'Problemas ao excluir usuário!'
+      )
   }
 
 }
